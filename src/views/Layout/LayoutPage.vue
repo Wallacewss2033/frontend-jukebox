@@ -1,15 +1,19 @@
 <!-- src/components/Layout.vue -->
 
 <template>
-  <div>
-    <main>
-      <router-view></router-view>
+		<header-component />
+    <main class="layout-container">
+      <router-view/>
     </main>
-  </div>
 </template>
 
 <script>
+import './styles.css';
+import HeaderComponent from '@/components/Header/HeaderComponent.vue';
 export default {
   name: "LayoutPage",
+	components: {
+		HeaderComponent
+	}
 };
 </script>
