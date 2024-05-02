@@ -18,6 +18,7 @@ export default {
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "slnt" 0;
+  height: 100%;
 }
 
 * {
