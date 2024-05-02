@@ -1,5 +1,7 @@
 .box-card {
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     padding: 10px;
 }

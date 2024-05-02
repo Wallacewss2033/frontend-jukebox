@@ -1,17 +1,30 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from '../views/Home/HomePage.vue';
 import Layout from '../views/Layout/LayoutPage.vue'
+import Login from "@/views/Login/LoginPage.vue";
+import auth from "@/services/middleware";
 const routes = [
-    { 
-        path: '',
+    {
+        path: '/',
         component: Layout,
         children: [
             {
-                path: '', 
+                path: '/',
                 name: 'Home',
-                component: Home
+                component: Home,
             },
-        ] 
+        ],
+        beforeEnter: auth,
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: Login,
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        redirect: '/login'
     }
 ];
 

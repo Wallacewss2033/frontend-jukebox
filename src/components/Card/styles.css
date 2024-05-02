@@ -1,8 +1,32 @@
 .card {
     height: 400px;
-    flex-basis: 31.75%;
+    flex-basis: calc(95% / 3);
     box-sizing: border-box;
     padding: 0;
     color: #4F4F4D;
     margin: 10px;
+}
+
+@media(max-width: 1400px) {
+    .card {
+        flex-basis: calc(94% / 3);
+    }
+}
+
+@media(max-width: 1200px) {
+    .card {
+        flex-basis: calc(93% / 3);
+    }
+}
+
+@media(max-width: 992px) {
+    .card {
+        flex-basis: calc(93% / 2);
+    }
+}
+
+@media(max-width: 768px) {
+    .card {
+        flex-basis: calc(96% / 1);
+    }
 }

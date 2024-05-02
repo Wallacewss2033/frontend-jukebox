@@ -1,5 +1,5 @@
 <template>
-  <div class="card text-start bg-white">
+  <div class="card text-start bg-white border-white">
     <div class="card-header bg-white">
       <h5 class="card-title">Special title treatment</h5>
     </div>
