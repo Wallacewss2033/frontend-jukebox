@@ -36,7 +36,7 @@
           <button
             type="button"
             class="btn btn-warning text-white"
-            data-bs-dismiss="modal"
+            :data-bs-dismiss="isEditMode ? 'modal' : ''"
             @click="
               () => {
                 isEditMode ? handlerUpdateTask() : handlerCreateTask();
@@ -104,8 +104,6 @@ export default {
           this.toast.success(
             `Tarefa ${this.isEditMode ? "atualizada" : "criada"} com sucesso!`
           );
-          this.title = null;
-          this.description = null;
           this.$emit("update-tasks");
         })
         .catch(() => {});

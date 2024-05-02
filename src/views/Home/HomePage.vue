@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <CreateTask @updateTasks="handlerGetTasks" :item="item" @cancelUpdate="clearItem" />
+    <CreateTask @updateTasks="handlerGetTasks" :item="item" @clearItem="clearItem" />
     <div class="box-card row">
       <CardComponent
         :key="i"
