@@ -14,11 +14,10 @@ export default {
 
 <style>
 #app {
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+  font-variation-settings: "slnt" 0;
 }
 
 * {
@@ -26,5 +25,5 @@ export default {
   padding: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 </style>
