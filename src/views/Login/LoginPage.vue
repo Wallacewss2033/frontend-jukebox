@@ -68,8 +68,6 @@ export default {
       signInWithEmailAndPassword(auth, this.email, this.password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log("Usuário autenticado:", user);
-
           let payload = {
             email: this.email,
             password: this.password,
@@ -81,19 +79,16 @@ export default {
               headers: { Authorization: `Bearer ${user.accessToken}` },
             })
             .then((response) => {
-              console.log(response.data);
               this.toast.success(response.data.message);
               cookies.set("auth-token", response.data.authorization.token);
               cookies.set("user", response.data.user.name);
               this.$router.push("/");
             })
             .catch((error) => {
-              console.log(error);
               this.toast.error(error.message);
             });
         })
-        .catch((error) => {
-          console.log(error.message);
+        .catch(() => {
           this.toast.error("Credenciais inválidas");
         });
     },
