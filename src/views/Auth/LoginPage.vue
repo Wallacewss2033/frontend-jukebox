@@ -89,8 +89,8 @@ export default {
               this.toast.error(error.message);
             });
         })
-        .catch(() => {
-          this.toast.error("Credenciais inválidas");
+        .catch((error) => {
+          this.toast.error(error.message);
         });
     },
   },
