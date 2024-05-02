@@ -9,7 +9,8 @@ api.interceptors.request.use((config) => {
     config.headers.Accept = "application/json";
     config.headers["Content-Type"] = "application/json";
 
-    if (config.url !== 'login') {
+    if (config.url !== '/login' && config.url !== '/login-firebase') {
+        
         config.headers.Authorization = `Bearer ${cookies.get('auth-token')}`;
 
     }

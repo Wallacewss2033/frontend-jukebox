@@ -68,6 +68,7 @@ export default {
       signInWithEmailAndPassword(auth, this.email, this.password)
         .then((userCredential) => {
           const user = userCredential.user;
+          console.log(user.accessToken);
           let payload = {
             email: this.email,
             password: this.password,

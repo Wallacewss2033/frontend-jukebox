@@ -1,12 +1,12 @@
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA8ASiNuxR6Y36QRWs_VK6zsxva4B422dE",
-    authDomain: "login-jukebox.firebaseapp.com",
-    projectId: "login-jukebox",
-    storageBucket: "login-jukebox.appspot.com",
-    messagingSenderId: "144239276036",
-    appId: "1:144239276036:web:5f80e829daae2219d48551"
+    apiKey: process.env.VUE_APP_API_KEY,
+    authDomain: process.env.VUE_APP_AUTH_DOMAIN,
+    projectId: process.env.VUE_APP_PROJECT_ID,
+    storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER,
+    appId: process.env.VUE_APP_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
