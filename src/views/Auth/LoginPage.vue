@@ -38,7 +38,7 @@
 
 <script>
 import { useToast } from "vue-toastification";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import { app } from "@/firebase";
 import api from "@/services/api";
 import "./styles.css";
@@ -68,8 +68,10 @@ export default {
       signInWithEmailAndPassword(auth, this.email, this.password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user.accessToken);
+          cookies.set("auth-token", user.accessToken);
+
           let payload = {
+            id: user.uid,
             email: this.email,
             password: this.password,
             provider: user.providerId,
@@ -80,9 +82,8 @@ export default {
               headers: { Authorization: `Bearer ${user.accessToken}` },
             })
             .then((response) => {
-              this.toast.success(response.data.message);
-              cookies.set("auth-token", response.data.authorization.token);
               cookies.set("user", response.data.user.name);
+              this.toast.success(response.data.message);
               this.$router.push("/");
             })
             .catch((error) => {
