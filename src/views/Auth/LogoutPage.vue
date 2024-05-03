@@ -2,14 +2,14 @@
   <div></div>
 </template>
 <script>
-import api from "@/services/api";
 import cookies from "@/services/cookies";
-
+import { signOut, getAuth } from "firebase/auth";
+import { app } from "@/firebase";
 export default {
   name: "LogoutPage",
   mounted() {
-    api
-      .post("/logout")
+    const auth = getAuth(app);
+    signOut(auth)
       .then(() => {
         cookies.remove("user");
         cookies.remove("auth-token");
