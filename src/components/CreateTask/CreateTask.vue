@@ -101,12 +101,12 @@ export default {
       api
         .post("/tasks", data)
         .then(() => {
-          this.toast.success(
-            `Tarefa ${this.isEditMode ? "atualizada" : "criada"} com sucesso!`
-          );
+          this.toast.success(`Tarefa criada com sucesso!`);
           this.$emit("update-tasks");
         })
-        .catch(() => {});
+        .catch(() => {
+          this.toast.error(`Não foi possível criar tarefa`);
+        });
     },
     handlerUpdateTask() {
       const data = {
@@ -118,9 +118,12 @@ export default {
         .then(() => {
           this.title = null;
           this.description = null;
+          this.toast.success(`Tarefa atualizada com sucesso!`);
           this.$emit("update-tasks");
         })
-        .catch(() => {});
+        .catch(() => {
+          this.toast.error(`Não foi possível atualizar tarefa`);
+        });
     },
     handlerClearItem() {
       this.$emit("clear-item");
