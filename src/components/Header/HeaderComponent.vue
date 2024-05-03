@@ -39,7 +39,6 @@ export default {
   },
   mounted() {
     this.user = cookies.get("user");
-    console.log(this.user);
   },
 };
 </script>
