@@ -18,7 +18,7 @@
         :key="pageNumber"
         :class="{ active: currentPage === pageNumber }"
       >
-        <a class="page-link" href="#" @click.prevent="handlerGoPage(pageNumber)">{{
+        <a class="page-link" @click.prevent="handlerGoPage(pageNumber)">{{
           pageNumber
         }}</a>
       </li>
