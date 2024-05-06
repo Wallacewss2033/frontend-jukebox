@@ -42,7 +42,7 @@ export default {
       handler() {
         this.handlerGetTasks();
       },
-      deep: true // Observa alterações profundas no objeto 'usuario'
+      deep: true
     },
   },
   data() {
@@ -67,15 +67,15 @@ export default {
         .get(`/tasks?page=${this.pagination.current_page}`)
         .then((response) => {
           this.tasks = response.data.data;
+          
           if (this.pagination.current_page !== response.data.current_page) {
-            this.pagination = {
-              current_page: response.data.current_page,
-              per_page: response.data.per_page,
-              total_page: response.data.last_page,
-              prev: response.data.prev_page_url,
-              next: response.data.next_page_url,
-            }
+            this.pagination.current_page = response.data.current_page;
           }
+
+          this.pagination.per_page = response.data.per_page;
+          this.pagination.total_page = response.data.last_page;
+          this.pagination.prev = response.data.prev_page_url;
+          this.pagination.next = response.data.next_page_url;
         })
         .catch(() => { });
     },

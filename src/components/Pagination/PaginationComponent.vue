@@ -1,6 +1,6 @@
 <template>
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
+  <nav>
+    <ul class="pagination justify-content-center">
 
       <li class="page-item" :class="{ disabled: currentPage === 1 }">
         <a
@@ -13,7 +13,7 @@
       </li>
 
       <li
-        class="page-item"
+        class="page-item "
         v-for="pageNumber in totalPage"
         :key="pageNumber"
         :class="{ active: currentPage === pageNumber }"
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import './styles.css';
 export default {
   name: "PaginationComponent",
   props: {
@@ -44,6 +45,11 @@ export default {
     totalPage: Number,
     prev: String, 
     next: String,
+  },
+  watch: {
+    totalPage() {
+      
+    }
   },
   methods: {
     handlerGoPage(value) {
